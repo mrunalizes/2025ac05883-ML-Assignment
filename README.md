@@ -7,23 +7,22 @@ prioritize preventive care. This project frames heart disease risk prediction as
 a **binary classification problem**: given a patient's clinical readings (blood
 pressure, cholesterol profile, blood sugar, etc.) and lifestyle indicators
 (exercise, sleep, stress, smoking, diet), predict whether the patient has heart
-disease (`has_heart_disease` = 1) or not (0). Five classification models are
+disease (1) or not (0). Five classification models are
 trained, evaluated, and compared, and the best-performing model is served
 through an interactive Streamlit web app.
 
 ## Dataset Description
 - **Source / file:** `heart_disease_risk_2026.csv`
 - **Instances:** 9,000 patient records
-- **Features:** 26 input features (after dropping the `patient_id` identifier) — exceeds the assignment's minimum of 12 features and 500 instances
-- **Target:** `has_heart_disease` (0 = no disease, 1 = disease); class balance is ~70% / ~30%
+- **Features:** 26 input features 
+- **Target:** (0 = no disease, 1 = disease); class balance is ~70% / ~30%
 - **Feature groups:**
   - *Clinical:* age, resting systolic/diastolic BP, total cholesterol, HDL, LDL, triglycerides, fasting blood sugar, HbA1c, BMI, resting/max heart rate, ST depression, chest pain type, exercise-induced angina, family history
   - *Lifestyle:* smoker status, alcohol units/week, exercise minutes/week, sleep hours, stress score, daily steps, diet quality score, wearable device ownership
-- **Preprocessing:** boolean columns cast to 0/1, numeric features standardized (`StandardScaler`), categorical features (`sex`, `chest_pain_type`, `smoker_status`) one-hot encoded, 80/20 stratified train/test split (`random_state=42`)
+- **Preprocessing:** boolean columns cast to 0/1, numeric features standardized , categorical features (`sex`, `chest_pain_type`, `smoker_status`) one-hot encoded, 80/20 stratified train/test split 
 
 ## GitHub Repository Link
-> **TODO:** replace with your repository URL, e.g.
-> `https://github.com/<your-username>/2025ac05883-ml-assignment`
+(https://github.com/mrunalizes/2025ac05883-ML-Assignment)
 
 ## Models Used
 All 5 models were trained on the same 80/20 stratified split of the dataset above.
@@ -50,19 +49,18 @@ Metrics were computed on the held-out 20% test set. Training code lives in
 | **Overall Winner for your dataset?** | **Logistic Regression** — it gives the best balance of Accuracy, AUC, F1, and MCC, and is also the most interpretable and cheapest to serve in production. Random Forest is a strong runner-up if a non-linear model is preferred for future feature engineering. |
 
 ## Live Streamlit App Link
-> **TODO:** replace with your deployed app URL, e.g.
-> `https://<your-app-name>.streamlit.app`
+(https://2025ac05883-ml-assignment-2.streamlit.app/)
 
 ## Repository Structure
 ```
 project-folder/
-│-- app.py                          # Streamlit app
+│-- app.py                        
 │-- requirements.txt
 │-- README.md
-│-- test_data.csv                   # sample of held-out data for the app
-│-- heart_disease_risk_2026.csv     # full training dataset
+│-- test_data.csv                   
+│-- heart_disease_risk_2026.csv    
 │-- model/
-│   │-- train_models.py             # trains + saves all 5 models
+│   │-- train_models.py             
 │   │-- logistic_regression.joblib
 │   │-- decision_tree.joblib
 │   │-- knn.joblib
@@ -84,6 +82,4 @@ streamlit run app.py
 - Display of evaluation metrics (Accuracy, AUC, Precision, Recall, F1, MCC)
 - Confusion matrix and full classification report
 - Side-by-side comparison of all 5 models on the uploaded data
-- If a model file is somehow missing from the deployed checkout, `app.py`
-  automatically fetches it from this GitHub repo's raw file URL as a fallback
-  (see `GITHUB_USER` / `GITHUB_REPO` / `GITHUB_BRANCH` at the top of `app.py`)
+

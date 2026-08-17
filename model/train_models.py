@@ -2,13 +2,8 @@
 model/train_models.py
 ----------------------
 Trains all 5 required classification models on the Heart Disease Risk (2026)
-dataset and saves each fitted pipeline as a .joblib file INSIDE THIS model/
-FOLDER, along with a metrics comparison table.
-
-Run once from the project root before deploying:
-    python model/train_models.py
-
-Produces, inside model/:
+dataset a
+ model/:
     logistic_regression.joblib
     decision_tree.joblib
     knn.joblib
@@ -16,8 +11,6 @@ Produces, inside model/:
     random_forest_ensemble.joblib
     metrics_comparison.csv
 
-Also produces, at the project root:
-    test_data.csv   (sample of held-out data used by app.py)
 """
 
 import os
@@ -45,11 +38,8 @@ from sklearn.tree import DecisionTreeClassifier
 
 warnings.filterwarnings("ignore")
 
-# ---------------------------------------------------------------------
-# Paths (script can be run from project root: `python model/train_models.py`)
-# ---------------------------------------------------------------------
-THIS_DIR = os.path.dirname(os.path.abspath(__file__))     # .../project-folder/model
-PROJECT_ROOT = os.path.dirname(THIS_DIR)                  # .../project-folder
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))    
+PROJECT_ROOT = os.path.dirname(THIS_DIR)               
 DATA_PATH = os.path.join(PROJECT_ROOT, "heart_disease_risk_2026.csv")
 TEST_DATA_PATH = os.path.join(PROJECT_ROOT, "test_data.csv")
 

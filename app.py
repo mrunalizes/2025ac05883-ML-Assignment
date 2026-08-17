@@ -2,29 +2,7 @@
 app.py
 ------
 Streamlit app for the Heart Disease Risk (2026) classification project.
-
-Loads the 5 pre-trained models from the model/ folder. If a file isn't
-found locally (e.g. deployment checkout issue), it's downloaded directly
-from this GitHub repo's raw file URLs as a fallback.
-
-Expected project structure:
-    project-folder/
-    │-- app.py
-    │-- requirements.txt
-    │-- README.md
-    │-- test_data.csv
-    │-- heart_disease_risk_2026.csv
-    │-- model/
-    │   │-- train_models.py
-    │   │-- logistic_regression.joblib
-    │   │-- decision_tree.joblib
-    │   │-- knn.joblib
-    │   │-- naive_bayes.joblib
-    │   │-- random_forest_ensemble.joblib
-    │   │-- metrics_comparison.csv
-
-IMPORTANT: update GITHUB_USER / GITHUB_REPO / GITHUB_BRANCH below to match
-your actual repo.
+    
 """
 
 import os
@@ -48,7 +26,6 @@ from sklearn.metrics import (
 
 st.set_page_config(page_title="Heart Disease Risk Classifier", layout="wide")
 
-# ---- update these three if your repo details differ ----
 GITHUB_USER = "mrunalizes"
 GITHUB_REPO = "2025ac05883-ml-assignment"
 GITHUB_BRANCH = "main"
@@ -66,8 +43,7 @@ TARGET = "has_heart_disease"
 
 
 def ensure_file_present(relative_path: str) -> str:
-    """Return a local path to `relative_path` (e.g. 'model/knn.joblib' or
-    'test_data.csv'), downloading it from GitHub raw if not found locally."""
+
     if os.path.exists(relative_path):
         return relative_path
 
